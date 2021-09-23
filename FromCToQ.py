@@ -1,6 +1,7 @@
 '''Programa de simulacion de lo clasico a lo cuantico
     Mateo Olaya Garzon
     Septiembre 2021 '''
+import matplotlib.pyplot as plt
 
 def matriz_nxn(tamaño):
     '''Funcion que se encarga de crear una matriz cuadrada del tamaño indicado
@@ -147,3 +148,15 @@ def mat_interference(matriz):
                 if temp1 == temp and (matriz[i][j] != 0 or matriz[j][i] != 0):
                     a += [[i,j]]
     return a
+
+#Cree una función para graficar con un diagrama de barras que muestre las probabilidades de un vector de estados. La imagen se debe poder guardar en el computador con un formato de imagen.
+def grafico(matriz, vector, clicks):
+    '''Funcion que grafica el vector de estado despues de una cantidad de clicks especifica
+        ( list, list, int ) -> img'''
+    a = v_final(matriz, vector, clicks)
+    x = []
+    for i in range(len(a)):
+        x += [i]
+    plt.bar(x,a)
+    plt.xlabel('Probabilidad')
+    plt.show()
